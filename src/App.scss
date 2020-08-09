@@ -7,8 +7,12 @@ body {
 .app {
   text-align: center;
 
+  form {
+    margin: 40px auto;
+  }
+
   .tile-container {
-    margin: 40px auto 0;
+    margin: 0 auto;
     max-width: 1000px;
     display: flex;
     align-items: center;
