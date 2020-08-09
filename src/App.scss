@@ -1,9 +1,17 @@
 @import './variables.scss';
 
 body {
-  background-color: $pale-blue;
+  background-color: $secondary-color;
 }
 
 .app {
   text-align: center;
+
+  .tile-container {
+    margin: 40px auto 0;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }
