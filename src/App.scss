@@ -1,41 +1,9 @@
-/* color variables */
-$pale-blue: #c5d2d7;
-$middle-blue: #7db9d6;
-$box-shadow: #a7a1a1;
+@import './variables.scss';
 
 body {
   background-color: $pale-blue;
 }
 
-.App {
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 60px;
-  pointer-events: none;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: $middle-blue;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  font-size: 1.15em;
-  box-shadow: 0 4px 2px 0 $box-shadow;
-  color: white;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
