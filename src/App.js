@@ -8,6 +8,7 @@ import React, {
 import './App.scss';
 
 import Header from './components/Header/Header';
+import Recommendation from './components/Recommendation/Recommendation';
 import Tile from './components/Tile/Tile';
 
 function App() {
@@ -81,7 +82,7 @@ function App() {
       {forecast && (
         <Fragment>
           <h1>Enjoy {destination}!</h1>
-          <div className="tile-container">
+          <div className="row">
             {forecast.map(date => (
               <Tile
                 key={date.dt}
@@ -92,6 +93,17 @@ function App() {
                 low={date.temp.min}
                 // pop = probability of precipitation
                 pop={date.pop}
+              />
+            ))}
+          </div>
+          <div className="row">
+            {forecast.map(date => (
+              <Recommendation
+                key={date.dt}
+                desc={date.weather[0].description}
+                high={date.temp.max}
+                icon={date.weather[0].icon}
+                low={date.temp.min}
               />
             ))}
           </div>
