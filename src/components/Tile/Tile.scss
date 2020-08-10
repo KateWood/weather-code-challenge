@@ -3,8 +3,13 @@
 .tile {
   background-color: white;
   width: 145px;
-  height: 200px;
+  height: 207px;
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0 4px 2px 1px $box-shadow;
+
+  h4,
+  img + p {
+    margin: 0;
+  }
 }

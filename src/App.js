@@ -24,7 +24,6 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault();
     setDestination(city);
-    console.log(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ef04c3abf4ce54cd1d370241f0074e94`);
   }
 
   // prevent useEffect on initial page load
@@ -47,17 +46,15 @@ function App() {
           let lon = response.city.coord.lon;
           // use the coordinates to get the daily forecast
           return fetch(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=ef04c3abf4ce54cd1d370241f0074e94`,
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly&appid=ef04c3abf4ce54cd1d370241f0074e94`,
             {
               method: "GET",
             }
           )
             .then(res => res.json())
             .then(response => {
-              // add formatted date to each object
-              let nextFiveDays = response.daily.slice(1,6).map(day=> ({ ...day, formattedDate: new Date(day.dt * 1000).toLocaleDateString("en-US") }));
-              console.log(nextFiveDays);
-              setForecast(nextFiveDays);
+              console.log(response.daily.slice(1,6));
+              setForecast(response.daily.slice(1,6));
               setCity('');
             })
             .catch(err => console.log(err));
@@ -86,9 +83,16 @@ function App() {
           <h1>Enjoy {destination}!</h1>
           <div className="tile-container">
             {forecast.map(date => (
-              <Tile key={date.dt}>
-                {date.formattedDate}
-              </Tile>
+              <Tile
+                key={date.dt}
+                date={date.dt}
+                desc={date.weather[0].description}
+                high={date.temp.max}
+                icon={date.weather[0].icon}
+                low={date.temp.min}
+                // pop = probability of precipitation
+                pop={date.pop}
+              />
             ))}
           </div>
         </Fragment>
