@@ -1,11 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { 
+  Fragment,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+
+import './App.scss';
+
 import Header from './components/Header/Header';
 import Tile from './components/Tile/Tile';
-import './App.scss';
 
 function App() {
   const [city, setCity] = useState('');
-  const [search, setSearch] = useState('');
+  const [destination, setDestination] = useState('');
+  const [forecast, setForecast] = useState(null);
 
   // update city as it is typed
   const handleChange = event => {
@@ -15,7 +23,7 @@ function App() {
   // trigger useEffect by updating search on form submit
   const handleSubmit = event => {
     event.preventDefault();
-    setSearch(city);
+    setDestination(city);
     console.log(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ef04c3abf4ce54cd1d370241f0074e94`);
   }
 
@@ -26,6 +34,7 @@ function App() {
     if (isInitialMount.current) {
      isInitialMount.current = false;
     } else {
+      // use the city name to get the coordinates
       fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ef04c3abf4ce54cd1d370241f0074e94`,
         {
@@ -34,11 +43,29 @@ function App() {
       )
         .then(res => res.json())
         .then(response => {
-          console.log(response);
+          let lat = response.city.coord.lat;
+          let lon = response.city.coord.lon;
+          // use the coordinates to get the daily forecast
+          return fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=ef04c3abf4ce54cd1d370241f0074e94`,
+            {
+              method: "GET",
+            }
+          )
+            .then(res => res.json())
+            .then(response => {
+              // add formatted date to each object
+              let nextFiveDays = response.daily.slice(1,6).map(day=> ({ ...day, formattedDate: new Date(day.dt * 1000).toLocaleDateString("en-US") }));
+              console.log(nextFiveDays);
+              setForecast(nextFiveDays);
+              setCity('');
+            })
+            .catch(err => console.log(err));
         })
         .catch(error => console.log(error));
     }
-  }, [search]);
+  // eslint-disable-next-line
+  }, [destination]);
 
   return (
     <div className="app">
@@ -54,13 +81,18 @@ function App() {
         </label>
         <input type="submit" value="Submit"/>
       </form>
-      <div className="tile-container">
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-      </div>
+      {forecast && (
+        <Fragment>
+          <h1>Enjoy {destination}!</h1>
+          <div className="tile-container">
+            {forecast.map(date => (
+              <Tile key={date.dt}>
+                {date.formattedDate}
+              </Tile>
+            ))}
+          </div>
+        </Fragment>
+      )}
     </div>
   );
 }

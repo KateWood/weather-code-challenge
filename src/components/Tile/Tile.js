@@ -1,10 +1,10 @@
 import React from 'react';
 import './Tile.scss';
 
-function Tile() {
+function Tile({children}) {
   return (
     <div className="tile">
-      <span>Tile</span>
+      <span>{children}</span>
     </div>
   );
 }
