@@ -9,6 +9,7 @@ import './App.scss';
 
 import Form from './components/Form/Form';
 import Header from './components/Header/Header';
+import PackingList from './components/PackingList/PackingList';
 import Recommendation from './components/Recommendation/Recommendation';
 import Tile from './components/Tile/Tile';
 
@@ -110,6 +111,8 @@ function App() {
               </div>
             ))}
           </div>
+          <PackingList forecast={forecast} />
+          <h1>Have a great trip!</h1>
         </Fragment>
       )}
     </div>

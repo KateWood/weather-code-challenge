@@ -1,0 +1,19 @@
+@import '../../variables.scss';
+
+img {
+  height: 100px;
+  margin: 0 10px;
+}
+
+ul {
+  width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: inside;
+}
+
+@media screen and ($mobile) {
+  .packingImages {
+    margin: 10px;
+  }
+}
