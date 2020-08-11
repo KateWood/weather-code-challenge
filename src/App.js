@@ -58,7 +58,6 @@ function App() {
           )
             .then(res => res.json())
             .then(response => {
-              console.log(response.daily.slice(1,6));
               setForecast(response.daily.slice(1,6));
               setCity('');
             })
