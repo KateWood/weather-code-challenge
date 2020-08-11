@@ -8,12 +8,12 @@ body {
   text-align: center;
 
   form {
-    margin: 40px auto;
+    margin: 40px auto 20px;
   }
 
   .row {
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: $max-width;
     display: flex;
     justify-content: space-around;
   }

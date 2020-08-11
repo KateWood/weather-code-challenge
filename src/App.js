@@ -7,6 +7,7 @@ import React, {
 
 import './App.scss';
 
+import Form from './components/Form/Form';
 import Header from './components/Header/Header';
 import Recommendation from './components/Recommendation/Recommendation';
 import Tile from './components/Tile/Tile';
@@ -17,8 +18,8 @@ function App() {
   const [forecast, setForecast] = useState(null);
 
   // update city as it is typed
-  const handleChange = event => {
-    setCity(event.target.value);
+  const handleChange = newCity => {
+    setCity(newCity);
   }
 
   // trigger useEffect by updating search on form submit
@@ -68,17 +69,11 @@ function App() {
   return (
     <div className="app">
       <Header/>
-      <form onSubmit={handleSubmit}>
-        <label>
-          What city are you visiting?
-          <input
-            type="text"
-            value={city}
-            onChange={handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit"/>
-      </form>
+      <Form
+        city={city}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
       {forecast && (
         <Fragment>
           <h1>Enjoy {destination}!</h1>

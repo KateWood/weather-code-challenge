@@ -1,0 +1,35 @@
+@import '../../variables.scss';
+
+form {
+  max-width: $max-width;
+
+  label,
+  input {
+    display: block;
+    margin: 0 auto 7px;
+  }
+
+  label {
+    font-size: 1.1rem;
+  }
+
+  input {
+    padding: 12px 20px;
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid $primary-color;
+    outline: none;
+  }
+
+  input[type="text"] {
+    background-color: $secondary-color;
+  }
+
+  input[type="submit"] {
+    background-color: $primary-color;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+}
