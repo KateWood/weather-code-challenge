@@ -7,10 +7,11 @@ form {
   input {
     display: block;
     margin: 0 auto 7px;
+    font-size: 1.1rem;
   }
 
   label {
-    font-size: 1.1rem;
+    font-weight: 500;
   }
 
   input {
@@ -18,15 +19,26 @@ form {
     width: 200px;
     box-sizing: border-box;
     border: 2px solid $primary-color;
+    border-radius: 10px;
     outline: none;
   }
 
   input[type="text"] {
     background-color: $secondary-color;
+
+    &.isError {
+      border: 2px solid red;
+    }
+
+    &::placeholder {
+      font-size: 0.9rem;
+    }
   }
 
   input[type="submit"] {
     background-color: $primary-color;
+    font-weight: 500;
+    color: white;
 
     &:hover {
       background-color: $primary-hover;

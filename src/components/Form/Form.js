@@ -1,7 +1,7 @@
 import React from 'react';
 import './Form.scss';
 
-function Form({ city, onChange, onSubmit }) {
+function Form({ city, isError, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <label htmlFor="city">
@@ -9,8 +9,10 @@ function Form({ city, onChange, onSubmit }) {
       </label>
       <input
         type="text"
+        className={isError ? 'isError' : ''}
+        placeholder={isError ? 'enter valid city name' : ''}
         id="city"
-        value={city}
+        value={isError ? '' : city}
         onChange={event => onChange(event.target.value)}
       />
       <input type="submit" value="Submit"/>

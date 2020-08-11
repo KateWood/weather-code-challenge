@@ -14,11 +14,13 @@ import Tile from './components/Tile/Tile';
 
 function App() {
   const [city, setCity] = useState('');
+  const [isError, setIsError] = useState('');
   const [destination, setDestination] = useState('');
   const [forecast, setForecast] = useState(null);
 
   // update city as it is typed
   const handleChange = newCity => {
+    setIsError(false);
     setCity(newCity);
   }
 
@@ -59,9 +61,17 @@ function App() {
               setForecast(response.daily.slice(1,6));
               setCity('');
             })
-            .catch(err => console.log(err));
+            .catch(error => {
+              setForecast(null);
+              setIsError(true);
+              console.log(error);
+            });
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          setForecast(null);
+          setIsError(true);
+          console.log(error);
+        });
     }
   // eslint-disable-next-line
   }, [destination]);
@@ -71,12 +81,14 @@ function App() {
       <Header/>
       <Form
         city={city}
+        isError={isError}
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
       {forecast && (
         <Fragment>
-          <h1>Enjoy {destination}!</h1>
+          {/* title case destination */}
+          <h1>Enjoy {destination.toLowerCase().split(' ').map(word => (word.charAt(0).toUpperCase() + word.slice(1))).join(' ')}!</h1>
           <div className="row">
             {forecast.map(date => (
               <Tile
