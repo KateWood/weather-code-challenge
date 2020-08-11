@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/weather-code-challenge/static/css/main.696497c4.chunk.css",
+    "main.js": "/weather-code-challenge/static/js/main.6a20257b.chunk.js",
+    "main.js.map": "/weather-code-challenge/static/js/main.6a20257b.chunk.js.map",
+    "runtime-main.js": "/weather-code-challenge/static/js/runtime-main.9b7ed30b.js",
+    "runtime-main.js.map": "/weather-code-challenge/static/js/runtime-main.9b7ed30b.js.map",
+    "static/js/2.0ac7e42d.chunk.js": "/weather-code-challenge/static/js/2.0ac7e42d.chunk.js",
+    "static/js/2.0ac7e42d.chunk.js.map": "/weather-code-challenge/static/js/2.0ac7e42d.chunk.js.map",
+    "index.html": "/weather-code-challenge/index.html",
+    "precache-manifest.138032e0bc7c58e45737835786c4d168.js": "/weather-code-challenge/precache-manifest.138032e0bc7c58e45737835786c4d168.js",
+    "service-worker.js": "/weather-code-challenge/service-worker.js",
+    "static/css/main.696497c4.chunk.css.map": "/weather-code-challenge/static/css/main.696497c4.chunk.css.map",
+    "static/js/2.0ac7e42d.chunk.js.LICENSE.txt": "/weather-code-challenge/static/js/2.0ac7e42d.chunk.js.LICENSE.txt",
+    "static/media/mittens.png": "/weather-code-challenge/static/media/mittens.91f71289.png",
+    "static/media/rainboots.png": "/weather-code-challenge/static/media/rainboots.fd86796a.png",
+    "static/media/shorts.png": "/weather-code-challenge/static/media/shorts.5eb45616.png",
+    "static/media/snowboots.png": "/weather-code-challenge/static/media/snowboots.3e0537af.png",
+    "static/media/sun.png": "/weather-code-challenge/static/media/sun.645c9b49.png",
+    "static/media/sunglasses.png": "/weather-code-challenge/static/media/sunglasses.84cd38d8.png",
+    "static/media/sweater.png": "/weather-code-challenge/static/media/sweater.df50de3a.png",
+    "static/media/tShirt.png": "/weather-code-challenge/static/media/tShirt.c75aef2e.png",
+    "static/media/umbrella.png": "/weather-code-challenge/static/media/umbrella.7c80b1b1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9b7ed30b.js",
+    "static/js/2.0ac7e42d.chunk.js",
+    "static/css/main.696497c4.chunk.css",
+    "static/js/main.6a20257b.chunk.js"
+  ]
+}
