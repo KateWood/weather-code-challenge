@@ -89,29 +89,25 @@ function App() {
         <Fragment>
           {/* title case destination */}
           <h1>Enjoy {destination.toLowerCase().split(' ').map(word => (word.charAt(0).toUpperCase() + word.slice(1))).join(' ')}!</h1>
-          <div className="row">
+          <div className="tile-container">
             {forecast.map(date => (
-              <Tile
-                key={date.dt}
-                date={date.dt}
-                desc={date.weather[0].description}
-                high={date.temp.max}
-                icon={date.weather[0].icon}
-                low={date.temp.min}
-                // pop = probability of precipitation
-                pop={date.pop}
-              />
-            ))}
-          </div>
-          <div className="row">
-            {forecast.map(date => (
-              <Recommendation
-                key={date.dt}
-                desc={date.weather[0].description}
-                high={date.temp.max}
-                icon={date.weather[0].icon}
-                low={date.temp.min}
-              />
+              <div className="day" key={date.dt}>
+                <Tile
+                  date={date.dt}
+                  desc={date.weather[0].description}
+                  high={date.temp.max}
+                  icon={date.weather[0].icon}
+                  low={date.temp.min}
+                  // pop = probability of precipitation
+                  pop={date.pop}
+                />
+                <Recommendation
+                  desc={date.weather[0].description}
+                  high={date.temp.max}
+                  icon={date.weather[0].icon}
+                  low={date.temp.min}
+                />
+              </div>
             ))}
           </div>
         </Fragment>

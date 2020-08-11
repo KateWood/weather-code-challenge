@@ -4,3 +4,10 @@
   width: 145px;
   text-align: left;
 }
+
+@media screen and ($mobile) {
+  .recommendation {
+    width: 185px;
+    text-align: center;
+  }
+}
