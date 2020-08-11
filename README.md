@@ -1,3 +1,7 @@
+Deployed on GitHub Pages: [https://katewood.github.io/weather-code-challenge](https://katewood.github.io/weather-code-challenge).
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
